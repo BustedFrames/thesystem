@@ -8,16 +8,13 @@ class User extends Entity{
     public $password;
     public $path;
     public $files;
-    public $songs;
-    public $bands;
     public $mailbox;
-    public $bank;
+    public $profiles;
     
     public function __construct($name=null, $path=null){
         parent::__construct($name, $path);
         $this->files = new Files($this->path,"files");
-        $this->songs = new Songs($this->path, "songs");
-        $this->bands = new Bands($this->path, "bands");
+        $this->profiles = new Profiles($this->path, "profiles");
     }
     
     public function login(){
@@ -34,6 +31,9 @@ class User extends Entity{
     public function validate($password){
         
         return password_verify($password, $this->password);
+    }
+    public function has_profile($type){
+        return in_array($type, $this->profiles->get_collection());
     }
 }
 

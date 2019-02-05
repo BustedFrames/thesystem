@@ -32,10 +32,6 @@ class Collection extends Entity implements Countable{
     
     public function get_collection(){
         $_ = array();
-        if($this->path == '/_encouragements')
-        {
-            diebug(debug_backtrace());
-        }
         
         $items = new DirectoryIterator($this->path);
         foreach($items as $item){

@@ -41,6 +41,9 @@ if(!function_exists('diebug')) {
 
 
 function removeDirectory($path) {
+	if(!strpos($path, APP_ROOT)>-1 && strlen($path) > strlen(APP_ROOT)){
+		return false;
+	}
  	$files = glob($path . '/*');
 	foreach ($files as $file) {
 		is_dir($file) ? removeDirectory($file) : unlink($file);

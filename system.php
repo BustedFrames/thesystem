@@ -7,6 +7,7 @@ class System{
     public $users;
     private $admin;
     public $user;
+    public $profile_types;
     
     public function __construct($path){
         
@@ -87,6 +88,10 @@ class System{
         
         return str_replace(" ","-",strtolower($str));
 
+    }
+    
+    public function is_valid_profile_type($type){
+        return in_array($type,$this->profile_types);
     }
     
     public function __destruct(){}

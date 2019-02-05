@@ -1,6 +1,6 @@
 <?php
 
-require_once APP_ROOT."system/collections/collections.php";
+require_once APP_ROOT."system/collections.php";
 
 class Image extends Item{
         public $title;
